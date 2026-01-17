@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC   , KC_Q         ,    KC_W     ,     KC_E    ,    KC_R     , KC_T     ,                                        KC_Y     ,     KC_U     ,     KC_I     ,     KC_O     ,        KC_P     , G(KC_L)   ,
     KC_TAB   , LGUI_T(KC_A) , LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G     ,                                        KC_H     , RSFT_T(KC_J) , RCTL_T(KC_K) , RALT_T(KC_L) , RGUI_T(KC_SCLN) , S(KC_7)  ,
     KC_LSFT  , KC_Z         ,    KC_X     ,     KC_C    ,    KC_V     , KC_B     ,                                        KC_N     ,     KC_M     ,     KC_COMM  ,     KC_DOT   ,        KC_SLSH  , G(KC_SPC)  ,
-                                  KC_LALT,KC_LGUI,LT(4,KC_ESC)  ,LT(2,KC_SPC),    LT(1,KC_TAB),                  LT(5,KC_BSPC),LT(3,KC_ENT), RCTL_T(KC_LNG2),     KC_RALT  , KC_PSCR
+                                  KC_LALT,KC_LGUI,LT(1,KC_ESC)  ,LT(2,KC_SPC),    LT(4,KC_TAB),                  LT(5,KC_BSPC),LT(3,KC_ENT), RCTL_T(KC_LNG2),     KC_RALT  , KC_PSCR
   ),
   
   //mouse
@@ -71,6 +71,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______  , _______  , _______  , _______  , _______  , _______  ,                                        CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , _______  , KBC_SAVE ,
                   QK_BOOT  , KBC_RST  , _______  ,        _______  , _______  ,                   _______  , _______  , _______       , KBC_RST  , QK_BOOT
   ),
+
+  // experimental syn/num layer
+  [6] = LAYOUT_universal(
+    _______  ,   KC_1   ,   KC_2   ,   KC_3   ,   KC_4   ,   KC_5   ,                                          KC_6   ,   KC_7   ,   KC_8   ,   KC_9   ,   KC_0   , _______  ,
+    _______  ,  S(KC_1) ,  S(KC_2) ,  S(KC_3) ,  S(KC_4) ,  S(KC_5) ,                                        KC_QUOT  ,  S(KC_9) , KC_LBRC  ,S(KC_LBRC), _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,                                        KC_MINS  ,  S(KC_0) , KC_RBRC  ,S(KC_RBRC), KC_BSLS  , _______  ,
+                  _______  , _______  , _______  ,        _______  , _______  ,                   _______  , _______  , _______       , _______  , _______
+  )
 };
 // clang-format on
 
