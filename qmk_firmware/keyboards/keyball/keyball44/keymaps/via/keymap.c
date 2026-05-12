@@ -22,27 +22,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define SCROLL_LAYER 3 // must greater than AUTO_MOUSE_DEFAULT_LAYER
 
+enum layers {
+  QWERTY,
+  COLEMAK,
+  MOUSE,
+  NAV,
+  SYM,
+  FN,
+  CONF
+};
+
+
+enum keycodes {
+    SW_WIN = SAFE_RANGE,  // Switch to next window      (alt-tab)
+    SW_TAB,  // Switch to next   TAB        (ctl-tab)
+};
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
-    KC_ESC   , KC_Q         ,    KC_W     ,     KC_E    ,    KC_R     , KC_T     ,                                        KC_Y     ,     KC_U     ,     KC_I     ,     KC_O     ,        KC_P     , G(KC_L)   ,
-    KC_TAB   , LGUI_T(KC_A) , LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G     ,                                        KC_H     , RSFT_T(KC_J) , RCTL_T(KC_K) , RALT_T(KC_L) , RGUI_T(KC_SCLN) , S(KC_7)  ,
-    KC_LSFT  , KC_Z         ,    KC_X     ,     KC_C    ,    KC_V     , KC_B     ,                                        KC_N     ,     KC_M     ,     KC_COMM  ,     KC_DOT   ,        KC_SLSH  , G(KC_SPC)  ,
-                                  KC_LALT,KC_LGUI,LT(2,KC_ESC)  ,LT(3,KC_SPC),    LT(5,KC_TAB),                  LT(6,KC_BSPC),LT(4,KC_ENT), RCTL_T(KC_LNG2),     KC_RALT  , KC_PSCR
+    KC_ESC   , KC_Q     , KC_W     ,  KC_E    , KC_R     , KC_T     ,                                                            KC_Y     ,  KC_U    ,  KC_I     ,  KC_O    ,   KC_P     , G(KC_L)   ,
+    KC_TAB   , KC_A     , KC_S     ,  KC_D    , KC_F     , KC_G     ,                                                            KC_H     ,  KC_J    ,  KC_K     ,  KC_L    ,   KC_SCLN  , S(KC_7)  ,
+    KC_LSFT  , KC_Z     , KC_X     ,  KC_C    , KC_V     , KC_B     ,                                                            KC_N     ,  KC_M    ,  KC_COMM  ,  KC_DOT  ,   KC_SLSH  , G(KC_SPC)  ,
+                                  KC_LALT,KC_LGUI,LT(FN,KC_ESC)  ,LT(NAV,KC_SPC),    KC_LSFT,                  LT(6,KC_BSPC),LT(4,KC_ENT), RCTL_T(KC_LNG2),     KC_RALT  , KC_PSCR
   ),
 
   // colemak-dh
   [1] = LAYOUT_universal(
-    KC_ESC   , KC_Q         ,    KC_W     ,     KC_F    ,    KC_P     , KC_B     ,                                        KC_J     ,     KC_L     ,     KC_U     ,     KC_Y     ,     KC_SCLN     , G(KC_L)   ,
-    KC_TAB   , LGUI_T(KC_A) , LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G     ,                                        KC_M     , RSFT_T(KC_N) , RCTL_T(KC_E) , RALT_T(KC_I) , RGUI_T(KC_O)    , S(KC_7)  ,
-    KC_LSFT  , KC_Z         ,    KC_X     ,     KC_C    ,    KC_D     , KC_V     ,                                        KC_K     ,     KC_H     ,     KC_COMM  ,     KC_DOT   ,        KC_SLSH  , G(KC_SPC)  ,
-                                  KC_LALT,KC_LGUI,LT(2,KC_ESC)  ,LT(3,KC_SPC),    LT(5,KC_TAB),                  LT(6,KC_BSPC),LT(4,KC_ENT), RCTL_T(KC_LNG2),     KC_RALT  , KC_PSCR
+    KC_ESC   , KC_Q         ,    KC_W     ,     KC_F    ,    KC_P     , KC_B     ,                                        KC_J     ,     KC_L     ,     KC_U     ,     KC_Y     ,     KC_QUOT     , G(KC_L)   ,
+    KC_TAB   , KC_A         ,    KC_R     ,     KC_S    ,    KC_T     , KC_G     ,                                        KC_M     ,     KC_N     ,     KC_E     ,     KC_I     ,     KC_O        , S(KC_7)  ,
+    KC_LSFT  , KC_Z         ,    KC_X     ,     KC_C    ,    KC_D     , KC_V     ,                                        KC_K     ,     KC_H     ,     KC_COMM  ,     KC_DOT   ,     KC_SCLN     , G(KC_SPC)  ,
+                                  KC_LALT,KC_LGUI,LT(FN,KC_ESC)  ,LT(NAV,KC_SPC),    KC_LSFT,                  LT(6,KC_BSPC),LT(4,KC_ENT), RCTL_T(KC_LNG2),     KC_RALT  , KC_PSCR
   ),
   
   //mouse
   [2] = LAYOUT_universal(
-    _______  , _______  , _______  , _______  , _______  , _______  ,                                        _______  , C(KC_V)  , C(KC_C)  , C(KC_X)  , C(KC_Z)  , _______  ,
+    _______  , KC_TAB  , SW_WIN  , SW_TAB  , _______  , _______  ,                                        _______  , C(KC_V)  , C(KC_C)  , C(KC_X)  , C(KC_Z)  , _______  ,
     _______  , KC_LGUI  , KC_LALT  , KC_LCTL  , KC_LSFT  , _______  ,                                        _______  , KC_BTN1  , KC_BTN3  , KC_BTN2  , _______  , _______  ,
     _______  , C(KC_Z)  , C(KC_X)  , C(KC_C)  , C(KC_V)  , _______  ,                                        _______  , KC_BTN4  , KC_BTN5  , _______  , _______  , _______  ,
                   _______  , _______ , _______  ,         _______  , _______  ,                    _______  , _______  , _______       , _______  , _______
@@ -50,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // Nav // TBD
   [3] = LAYOUT_universal(
-    _______  , _______  , _______  , _______  , _______  , _______  ,                                         _______  , C(KC_V)  , C(KC_C)  , C(KC_X)  , C(KC_Z)  , _______  ,
-    _______  , KC_LGUI  , KC_LALT  , KC_LCTL  , KC_LSFT  , _______  ,                                         KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , _______  , _______  ,
-    _______  , C(KC_Z)  , C(KC_X)  , C(KC_C)  , C(KC_V)  , _______  ,                                         KC_HOME  , KC_PGUP  , KC_PGDN  , KC_END   , _______  , _______  ,
+    _______  , KC_TAB   , SW_WIN   , SW_TAB   , _______  , _______  ,                                         KC_PGUP  , KC_HOME  , KC_UP    , KC_END   , _______  , _______  ,
+    _______  , OS_LGUI  , OS_LALT  , OS_LCTL  , OS_LSFT  , _______  ,                                         KC_PGDN  , KC_LEFT  , KC_DOWN  , KC_RGHT  , _______  , _______  ,
+    _______  , C(KC_Z)  , C(KC_X)  , C(KC_C)  , C(KC_V)  , _______  ,                                         _______  , _______  , _______  , _______   , _______  , _______  ,
                   _______  , _______ , _______  ,         _______  , _______  ,                   KC_DEL   , _______  , _______       , _______  , _______
   ),
 
@@ -128,3 +144,44 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 #endif
+
+// todo: seperate to other file
+void update_swapper(
+    bool *active,
+    uint16_t cmdish,
+    uint16_t tabish,
+    uint16_t trigger,
+    uint16_t keycode,
+    keyrecord_t *record
+) {
+    if (keycode == trigger) {
+        if (record->event.pressed) {
+            if (!*active) {
+                *active = true;
+                register_code(cmdish);
+            }
+            register_code(tabish);
+        } else {
+            unregister_code(tabish);
+            // Don't unregister cmdish until some other key is hit or released.
+        }
+    } else if (*active) {
+        unregister_code(cmdish);
+        *active = false;
+    }
+}
+
+bool sw_win_active = false;
+bool sw_tab_active = false;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    update_swapper(
+        &sw_win_active, KC_LALT, KC_TAB, SW_WIN,
+        keycode, record
+    );
+    update_swapper(
+        &sw_tab_active, KC_LCTL, KC_TAB, SW_LANG,
+        keycode, record
+    );
+
+}
