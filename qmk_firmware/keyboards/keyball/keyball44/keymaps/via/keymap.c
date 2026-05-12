@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Nav // TBD
   [3] = LAYOUT_universal(
     _______  , KC_TAB   , SW_WIN   , SW_TAB   , _______  , _______  ,                                         KC_PGUP  , KC_HOME  , KC_UP    , KC_END   , _______  , _______  ,
-    _______  , OS_LGUI  , OS_LALT  , OS_LCTL  , OS_LSFT  , _______  ,                                         KC_PGDN  , KC_LEFT  , KC_DOWN  , KC_RGHT  , _______  , _______  ,
+    _______  , OSM(MOD_LGUI)  , OSM(MOD_LALT)  , OSM(MOD_LCTL)  , OSM(MOD_LSFT)  , _______  ,                                         KC_PGDN  , KC_LEFT  , KC_DOWN  , KC_RGHT  , _______  , _______  ,
     _______  , C(KC_Z)  , C(KC_X)  , C(KC_C)  , C(KC_V)  , _______  ,                                         _______  , _______  , _______  , _______   , _______  , _______  ,
                   _______  , _______ , _______  ,         _______  , _______  ,                   KC_DEL   , _______  , _______       , _______  , _______
   ),
@@ -180,8 +180,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         keycode, record
     );
     update_swapper(
-        &sw_tab_active, KC_LCTL, KC_TAB, SW_LANG,
+        &sw_tab_active, KC_LCTL, KC_TAB, SW_TAB,
         keycode, record
     );
 
+    return true;
 }
