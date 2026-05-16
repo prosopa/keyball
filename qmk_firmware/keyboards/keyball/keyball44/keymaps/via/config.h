@@ -40,5 +40,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUTO_MOUSE_DEFAULT_LAYER 2
 #define AUTO_MOUSE_DELAY 200
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-#define DYNAMIC_KEYMAP_LAYER_COUNT 8
+#define DYNAMIC_KEYMAP_LAYER_COUNT 7
 #define COMBO_ONLY_FROM_LAYER 0
