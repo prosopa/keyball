@@ -165,7 +165,7 @@ void update_swapper(
             unregister_code(tabish);
             // Don't unregister cmdish until some other key is hit or released.
         }
-    } else if (*active) {
+    } else if (*active && !(keycode == KC_LSFT || keycode == KC_LEFT || keycode == KC_DOWN || keycode ==  KC_UP || keycode == KC_RGHT)) {
         unregister_code(cmdish);
         *active = false;
     }
