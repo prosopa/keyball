@@ -41,11 +41,11 @@ enum keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)  
-  // colemak-dh
+  // gralmak
   [COLEMAK] = LAYOUT_universal(
-    KC_ESC   , KC_Q         ,    KC_W     ,     KC_F    ,    KC_P     , KC_B     ,                                        KC_J     ,     KC_L     ,     KC_U     ,     KC_Y     ,     KC_QUOT     , G(KC_L)   ,
-    KC_TAB   , KC_A         ,    KC_R     ,     KC_S    ,    KC_T     , KC_G     ,                                        KC_M     ,     KC_N     ,     KC_E     ,     KC_I     ,     KC_O        , _______  ,
-    KC_LSFT  , KC_Z         ,    KC_X     ,     KC_C    ,    KC_D     , KC_V     ,                                        KC_K     ,     KC_H     ,     KC_COMM  ,     KC_DOT   ,     KC_SCLN     , G(KC_SPC)  ,
+    KC_ESC   , KC_B         ,    KC_L     ,     KC_D    ,    KC_W     , KC_Q     ,                                        KC_J     ,     KC_F     ,     KC_O     ,     KC_U     ,     KC_QUOT     , G(KC_L)   ,
+    KC_TAB   , KC_N         ,    KC_R     ,     KC_T    ,    KC_S     , KC_G     ,                                        KC_Y     ,     KC_H     ,     KC_A     ,     KC_E     ,     KC_I        , _______  ,
+    KC_LSFT  , KC_Z         ,    KC_X     ,     KC_M    ,    KC_C     , KC_V     ,                                        KC_K     ,     KC_P     ,     KC_COMM  ,     KC_DOT   ,     KC_SCLN     , G(KC_SPC)  ,
                                   KC_LALT,KC_LGUI,LT(MOUSE,KC_ESC)  ,LT(NAV,KC_SPC),    KC_LSFT,                  LT(CONF,KC_BSPC),LT(SYM,KC_ENT), RCTL_T(KC_LNG2),     KC_RALT  , KC_PSCR
   ),
 
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [NAV] = LAYOUT_universal(
     _______  , _______       , SW_WIN        , SW_TAB        ,      _______  , _______  ,                                             _______  , KC_HOME  , KC_END   , _______  , _______  , _______ ,
     _______  , OSM(MOD_LGUI) , OSM(MOD_LALT) , OSM(MOD_LCTL) , OSM(MOD_LSFT) , QK_AREP  ,                                             KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , KC_ENT   , _______ ,
-    _______  ,    KC_ESC     ,   _______     ,    _______    ,   KC_TAB      ,  QK_REP  ,                                             _______  , KC_PGUP  , KC_PGDN  , _______  , KC_DEL  , _______ ,
+    _______  ,    KC_ESC     ,   _______     ,  S(KC_TAB)    ,   KC_TAB      ,  QK_REP  ,                                             _______  , KC_PGUP  , KC_PGDN  , _______  , KC_DEL  , _______ ,
                                   _______    ,    _______    ,      _______  ,    _______  , _______  ,                   _______   , MO(FN)  , _______       , _______  , _______
   ),
 
@@ -107,10 +107,10 @@ enum combos {
   COMDOT_BTN5
 };
 
-const uint16_t PROGMEM jk_combo[] = { KC_N, KC_E, COMBO_END };
-const uint16_t PROGMEM kl_combo[] = { KC_E, KC_I, COMBO_END };
-const uint16_t PROGMEM jl_combo[] = { KC_N, KC_I, COMBO_END };
-const uint16_t PROGMEM mcom_combo[] = { KC_H, KC_COMM, COMBO_END };
+const uint16_t PROGMEM jk_combo[] = { KC_H, KC_A, COMBO_END };
+const uint16_t PROGMEM kl_combo[] = { KC_A, KC_E, COMBO_END };
+const uint16_t PROGMEM jl_combo[] = { KC_H, KC_E, COMBO_END };
+const uint16_t PROGMEM mcom_combo[] = { KC_P, KC_COMM, COMBO_END };
 const uint16_t PROGMEM comdot_combo[] = { KC_COMM, KC_DOT, COMBO_END };
 
 combo_t key_combos[] = {
