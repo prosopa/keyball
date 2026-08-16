@@ -46,3 +46,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 7
 #define COMBO_ONLY_FROM_LAYER 0
+
+#define TRI_LAYER_LOWER_LAYER = 3
+#define TRI_LAYER_UPPER_LAYER = 4
+#define TRI_LAYER_ADJUST_LAYER = 5

@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______  , _______       , SW_WIN        , SW_TAB        ,      _______  , _______  ,                                             _______  , KC_HOME  , KC_END   , _______  , _______  , _______ ,
     _______  , OSM(MOD_LGUI) , OSM(MOD_LALT) , OSM(MOD_LCTL) , OSM(MOD_LSFT) , QK_AREP  ,                                             KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , KC_ENT   , _______ ,
     _______  ,    KC_ESC     ,   _______     ,  S(KC_TAB)    ,   KC_TAB      ,  QK_REP  ,                                             _______  , KC_PGUP  , KC_PGDN  , _______  , KC_DEL  , _______ ,
-                                  _______    ,    _______    ,      _______  ,    _______  , _______  ,                   _______   , MO(FN)  , _______       , _______  , _______
+                                  _______    ,    _______    ,      _______  ,    _______  , _______  ,                   _______   , _______  , _______       , _______  , _______
   ),
 
   // symbol
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______  , S(KC_1)    , S(KC_2)    , S(KC_3)    , S(KC_4)  , S(KC_5)    ,                                       S(KC_6)    , S(KC_7)       , S(KC_8)       , S(KC_GRV)     , S(KC_SLSH)    , _______  ,
     _______  , S(KC_BSLS) , KC_GRV     , S(KC_EQL)  , KC_EQL   , KC_MINS    ,                                       S(KC_MINS) , OSM(MOD_LSFT) , OSM(MOD_LCTL) , OSM(MOD_LALT) , OSM(MOD_LGUI) , _______  ,
     _______  , KC_BSLS    , S(KC_LBRC) , KC_LBRC    , S(KC_9)  , S(KC_COMM) ,                                       S(KC_DOT)  , S(KC_0)       , KC_RBRC       , S(KC_RBRC)    , KC_SLSH       , _______ ,
-                  _______  , _______ , _______  ,          MO(FN)     , _______  ,                   _______   , _______  , _______       , _______  , _______
+                  _______  , _______ , _______  ,          _______  , _______  ,                   _______   , _______  , _______       , _______  , _______
   ),
 
   // fn and num
