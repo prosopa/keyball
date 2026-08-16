@@ -168,6 +168,7 @@ bool sw_win_active = false;
 bool sw_tab_active = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // window swapper and tab swapper
     update_swapper(
         &sw_win_active, KC_LALT, KC_TAB, SW_WIN,
         keycode, record
@@ -178,4 +179,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     );
 
     return true;
+}
+
+// customized cap word callback
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_MINS:
+        case KC_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
 }
