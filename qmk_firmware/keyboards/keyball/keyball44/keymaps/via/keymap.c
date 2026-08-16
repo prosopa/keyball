@@ -124,6 +124,9 @@ combo_t key_combos[] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Auto enable scroll mode when the highest layer is SCROLL_LAYER
     keyball_set_scroll_mode(get_highest_layer(state) == SCROLL_LAYER);
+
+    // customized tri layer callback
+    state = update_tri_layer_state(state, NAV, SYM, FN);
     return state;
 }
 
